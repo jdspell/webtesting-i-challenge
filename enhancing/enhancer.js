@@ -15,7 +15,17 @@ function succeed(item) {
 }
 
 function fail(item) {
-  return { ...item };
+  if(item.enhancement < 15){
+    item.durability -= 5;
+    return item;
+  }
+
+  item.durability -= 10;
+  if(item.enhancement > 16){
+    item.enhancement--;
+    return item;
+  }
+  return item;
 }
 
 function repair(item) {
